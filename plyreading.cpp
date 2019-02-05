@@ -68,7 +68,7 @@ int main()
               << " "    << cloud->points[i].z 
               << " "    <<  (int)r
               << " "    <<  (int)g
-              << " "    <<  int(b)<< std::endl;
+              << " "    <<  (int)b<< std::endl;
   }
 
               // apply stann on cloud now
