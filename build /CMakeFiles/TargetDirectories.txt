@@ -1,3 +1,0 @@
-/Users/maik/Documents/PhD/MY_GRAND_PROJECT/build /CMakeFiles/rebuild_cache.dir
-/Users/maik/Documents/PhD/MY_GRAND_PROJECT/build /CMakeFiles/edit_cache.dir
-/Users/maik/Documents/PhD/MY_GRAND_PROJECT/build /CMakeFiles/plyreading.dir

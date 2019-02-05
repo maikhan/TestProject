@@ -6,6 +6,8 @@
 #include <exception>
 #include<cmath>
 #include <iostream>
+#include <stdlib.h>
+#include <string.h>
 
 
 // boost library
@@ -43,27 +45,31 @@ int main()
 
   cout<<"current_path:"<<boost::filesystem::current_path().c_str()<<endl;
 
-  if (pcl::io::loadPLYFile<pcl::PointXYZRGB> ("/Users/maik/Documents/PhD/MY_GRAND_PROJECT/longdress_vox10_1300.ply", *cloud) == -1) //* load the file
+  if (pcl::io::loadPLYFile<pcl::PointXYZRGB> ("/home/muhammad/Desktop/input/longdress_vox10_1300.ply", *cloud) == -1) //* load the file
   {
     PCL_ERROR ("Couldn't read file ply file \n");
     return (-1);
   }
- /*uint32_t rgb = *reinterpret_cast<int*>(&cloud->points.rgb);
-uint8_t r = (rgb >> 16) & 0x0000ff;
-uint8_t g = (rgb >> 8)  & 0x0000ff;
-uint8_t b = (rgb)       & 0x0000ff;*/
 
   std::cout << "Loaded "
             << cloud->width * cloud->height
             << " data points from ply file  with the following fields: "
             << std::endl;
-  for (size_t i = 0; i < 200 ; ++i)
-    std::cout << "    " << cloud->points[i].x
+  for (size_t i = 0; i < cloud->points.size() ; ++i)
+  {
+	  uint32_t rgb = *reinterpret_cast<int*>(&(cloud->points[i].rgba));
+
+	 unsigned char r = (rgb >> 16) & 0x0000ff;
+	 unsigned char g = (rgb >> 8) & 0x0000ff;
+	 unsigned char b = (rgb)   & 0x0000ff;
+
+	  std::cout << "    " << cloud->points[i].x
               << " "    << cloud->points[i].y
               << " "    << cloud->points[i].z 
-              << " "    <<  cloud->points[i].r 
-              << " "    <<  cloud->points[i].g 
-              << " "    <<  cloud->points[i].b << std::endl;
+              << " "    <<  (int)r
+              << " "    <<  (int)g
+              << " "    <<  int(b)<< std::endl;
+  }
 
               // apply stann on cloud now
               
