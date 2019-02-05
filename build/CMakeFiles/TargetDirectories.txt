@@ -1,0 +1,3 @@
+/home/muhammad/git/TestProject/build/CMakeFiles/edit_cache.dir
+/home/muhammad/git/TestProject/build/CMakeFiles/rebuild_cache.dir
+/home/muhammad/git/TestProject/build/CMakeFiles/plyreading.dir
